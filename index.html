@@ -67,7 +67,7 @@ Copyright (C) 2026 kwmsnode
         <p>＊Debian 13上のFirefox ESRでNoto Sans Japanese Regularフォント（ttf）を使用して動作確認済み。otfは動作確認していません。</p>
         <p>＊このソフトウェアには、<span id="zyoyokanjicountlabel"></span>個の常用漢字リストが収録されています。これは、2026/05/15時点のWikipediaの常用漢字表を参考にして作成しました。削除された常用漢字は含みません。</p>
         <p>＊このソフトウェアは、α0.1バージョンであり、開発段階にあります。そのため、一部の機能（エラー対応・UI・半角記号関連機能）は妥協して作られています。多くの入力欄でバリデーションがされていないので、よく確認してすすめてください。適切でない入力や不要な記号・空白があると誤作動を引き起こすCソースが生成されないとも言えません。<strong>EX-Wordが破損する危険性もあります。</strong>使用前に生成された各ファイル・コードのセルフチェックをお願いいたします。（今後更新して対応します...）</p>
-        <p>＊フォントを800文字以上含めるとコンパイルに失敗します。ROM領域がオーバーフローするようです。（作ってから気づきました泣）サイズも見直した調整版を今後公開していきます。</p>
+        <p>＊フォントを800文字程度以上含めるとコンパイルに失敗します。ROM領域がオーバーフローするようです。（作ってから気づきました泣）サイズも見直した調整版を今後公開していきます。</p>
         <h2>操作</h2>
         <div id="fileselectcontent">
             <h3>ファイルの指定</h3>
@@ -117,7 +117,7 @@ Copyright (C) 2026 kwmsnode
     <div class="footer">
         EX拡張文字表示ライブラリ用 フォント定義Cファイル生成ツール α0.1<br>
         このソフトウェアはkwmsnodeが作成しました。GPLライセンスのもと自己責任で利用することができます。<br>
-        ソフトウェアの詳細 kwmsnode
+        <a href="https://kwmsnode.f5.si/ex%e6%8b%a1%e5%bc%b5%e6%96%87%e5%ad%97%e8%a1%a8%e7%a4%ba%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e7%94%a8-%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e5%ae%9a%e7%be%a9c%e3%83%95%e3%82%a1%e3%82%a4/" target="_blank">ソフトウェアの詳細</a> <a href="https://kwmsnode.f5.si/" target="_blank">kwmsnode</a>
     </div>
     <script>
         const fontfileinput = document.getElementById('fontfileinput');
@@ -148,7 +148,7 @@ Copyright (C) 2026 kwmsnode
 
         function addtemplate(template) {
             if(template === zyouyokanji){
-                alert('常用漢字は2000文字を超えます。現在の仕様では800文字までしかコンパイルできないため、含める漢字を絞られてください。（調整版を今後公開します。）');
+                alert('常用漢字は2000文字を超えます。現在の仕様では800文字程度までしかコンパイルできないため、含める漢字を絞られてください。（調整版を今後公開します。）');
             }
             if(includecharsinput.value.length !== 0 && includecharsinput.value[includecharsinput.value.length - 1] !== ','){
                 includecharsinput.value += ',';
@@ -163,7 +163,7 @@ Copyright (C) 2026 kwmsnode
         function charactercount() {
             const chars = includecharsinput.value.split(',');
             if(chars.length > 800){
-                document.getElementById('countlabel').innerHTML = `現在${chars.length}文字が指定されています。800文字を超える場合、<strong>コンパイルができません。</strong>（調整版を今後公開します。）`;
+                document.getElementById('countlabel').innerHTML = `現在${chars.length}文字が指定されています。800文字程度を超える場合、<strong>コンパイルができません。</strong>（調整版を今後公開します。）`;
             } else {
                 document.getElementById('countlabel').innerHTML = `現在${chars.length}文字が指定されています。`;
             }
